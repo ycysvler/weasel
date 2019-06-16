@@ -1,19 +1,21 @@
 package main
 
 import (
-	"fmt"
-	"os"
 	"bufio"
+	"fmt"
+	"github.com/weasel/server"
 	"io"
+	"os"
 )
 
-func main(){
+func main() {
 	fmt.Println("weasel main start!")
-	//server.Run()
-	test()
+	server.Run()
+
+	//test()
 }
 
-func test(){
+func test() {
 	f, err := os.Open("/Users/ycysvler/Documents/aba.txt")
 
 	if err != nil {
