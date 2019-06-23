@@ -5,4 +5,10 @@ assets:
 	@go fmt $$(go list ./... | grep -v /schema)
 	@echo "$(G)[OK]$(C)"
 
+tools:
+	@echo "--> Running tools"
+	@go get $(GOTOOLS)
+	@echo "$(G)[OK]$(C)"
 
+dev: assets
+	@go run main.go

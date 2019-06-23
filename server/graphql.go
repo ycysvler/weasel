@@ -2,8 +2,20 @@ package server
 
 import "github.com/gin-gonic/gin"
 
-func graphql(c *gin.Context) {
+func graphiql(c *gin.Context) {
 	c.Writer.Write(page)
+}
+
+type RequestOptions struct {
+	Query         string                 `json:"query" url:"query" schema:"query"`
+	Variables     map[string]interface{} `json:"variables" url:"variables" schema:"variables"`
+	OperationName string                 `json:"operationName" url:"operationName" schema:"operationName"`
+}
+
+type requestOptionsCompatibility struct {
+	Query         string `json:"query" url:"query" schema:"query"`
+	Variables     string `json:"variables" url:"variables" schema:"variables"`
+	OperationName string `json:"operationName" url:"operationName" schema:"operationName"`
 }
 
 var page = []byte(`

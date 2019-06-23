@@ -1,13 +1,9 @@
 schema {
         query: Query
-		mutation: Mutation
 }
 # 查询
 type Query {
         hello: String!
-		lala : String!
-		user(name:String!, old:Int!) : String!
-        group: Group!
 }
 # 修改
 type Mutation {
