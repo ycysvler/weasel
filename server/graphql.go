@@ -31,6 +31,10 @@ type requestOptionsCompatibility struct {
 
 var s1 *graphql.Schema
 
+type root struct{}
+
+func (_ *root) Hello() string { return "Hello, world!" }
+
 func init() {
 	//通过 graphql 字符串 & query 对象构建出schema对象
 	s1 = graphql.MustParseSchema(schema.String(), &root{})

@@ -4,15 +4,15 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type root struct{}
-
-func (_ *root) Hello() string { return "Hello, world!" }
-
 func Run() {
 	// 设置 gin 的模式（调试模式：DebugMode, 发行模式：ReleaseMode）
 	gin.SetMode(gin.DebugMode)
 	// 创建一个不包含中间件的路由器
 	r := gin.Default()
+
+	r.Static("/static", "./static")
+	// static icon
+	r.StaticFile("/favicon.ico", "./static/images/favicon.ico")
 
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
