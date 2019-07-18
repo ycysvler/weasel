@@ -25,6 +25,6 @@ func Run() {
 	r.POST("/api", api)
 
 	// 在8080 端口，启动http服务
-	r.Run()
+	r.Run(":8090")
 
 }

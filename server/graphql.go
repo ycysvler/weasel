@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"github.com/gin-gonic/gin"
 	"github.com/graph-gophers/graphql-go"
+	"github.com/weasel/resolver"
 	"github.com/weasel/schema"
 	"io/ioutil"
 	"net/http"
@@ -37,7 +38,7 @@ func (_ *root) Hello() string { return "Hello, world!" }
 
 func init() {
 	//通过 graphql 字符串 & query 对象构建出schema对象
-	s1 = graphql.MustParseSchema(schema.String(), &root{})
+	s1 = graphql.MustParseSchema(schema.String(), &resolver.Resolver{})
 }
 
 // get params
